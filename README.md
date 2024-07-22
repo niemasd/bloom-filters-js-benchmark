@@ -37,7 +37,7 @@ For the task of storing a collection of *n* strings with the intention to perfor
 
 To mirror the larger of the two Classic Bloom Filter benchmarks above (*n* = 500,000; *k* = 3,000), the list of raw SHA256 hashes would be 32 * 500,000 = 16,000,000 bytes = 16 MB. At a glance, this *seems* better than the Classic Bloom Filter, which had a serialized size of 30,777,614 bytes = 31 MB.
 
-However, the Classic Bloom Filter can be directly operated upon: given a query string, excluding the hashing step of the Bloom Filter, the "find" operation is O(1) per query. The unsorted list of SHA256 hashes, however, would require a O(*n*) scan to perform "find" operations for each query (also excluding the hashing step).
+However, the Classic Bloom Filter can be directly operated upon: given a query string, excluding the hashing step on the query, the "find" operation is O(1) per query. The unsorted list of SHA256 hashes, however, would require a O(*n*) scan to perform "find" operations for each query (also excluding the hashing step).
 
 One improvement to the SHA256 approach would be to store a *sorted* list of SHA256 hashes. This would improve the "find" operation to O(log *n*) per query, which is much slower than O(1), and it would worsen the "build" operation to O(*nk* + *n* log *n*) due to the need for an additional sorting step performed on the SHA256 hashes, which *could* be tolerable given that it happens server-side fairly infrequently (but would likely be intolerably slow if it ever needs to be performed client-side).
 
