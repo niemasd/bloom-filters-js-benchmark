@@ -17,7 +17,7 @@ node benchmark.js 1000 100 8.636168555094445e-78
 * Compress: 57 ms
 * Compressed Size: 65676 bytes
 
-```
+```bash
 # N = 500,000; K = 3,000; E = 1/(2^256)
 node benchmark.js 500000 3000 8.636168555094445e-78
 ```
