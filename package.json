@@ -1,0 +1,25 @@
+{
+  "name": "bloom-filters-js-benchmark",
+  "version": "1.0.0",
+  "description": "Some benchmarking of the JavaScript bloom-filters JavaScript library",
+  "main": "benchmark.js",
+  "type": "module",
+  "dependencies": {
+    "bloom-filter": "^0.2.0",
+    "bloom-filters": "^3.0.2",
+    "fflate": "^0.8.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niemasd/bloom-filters-js-benchmark.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niemasd/bloom-filters-js-benchmark/issues"
+  },
+  "homepage": "https://github.com/niemasd/bloom-filters-js-benchmark#readme"
+}
