@@ -1,7 +1,7 @@
 // set things up
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 import BloomFilter from 'bloom-filters'; // https://callidon.github.io/bloom-filters
-import { gzipSync, strToU8 } from 'fflate'; // https://github.com/101arrowz/fflate
+//import { gzipSync, strToU8 } from 'fflate'; // https://github.com/101arrowz/fflate
 
 // parse user arguments
 if(process.argv.length != 5) {
