@@ -29,14 +29,23 @@ console.log(`Build: ${end.getTime() - start.getTime()} ms`);
 
 // export Bloom Filter as JSON
 start = new Date();
-const exported = new TextEncoder().encode(JSON.stringify(filter.saveAsJSON()));
+const exported = filter.saveAsJSON();
+const exported_s = new TextEncoder().encode(JSON.stringify(exported));
 end = new Date();
 console.log(`Serialize: ${end.getTime() - start.getTime()} ms`);
-console.log(`Uncompressed Size: ${exported.length} bytes`);
+console.log(`Uncompressed Size: ${exported_s.length} bytes`);
 
 // GZIP-compress serialized Bloom Filter JSON
+/* Compressing is actually worse
 start = new Date();
 const compressed = gzipSync(strToU8(exported), {level:9, mem:4});
 end = new Date();
 console.log(`Compress: ${end.getTime() - start.getTime()} ms`);
 console.log(`Compressed Size: ${compressed.byteLength} bytes`);
+*/
+
+// load serialized Bloom Filter as JSON
+start = new Date();
+const imported = BloomFilter.BloomFilter.fromJSON(exported);
+end = new Date();
+console.log(`Deserialize: ${end.getTime() - start.getTime()} ms`);
