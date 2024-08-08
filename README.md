@@ -1,7 +1,7 @@
 # bloom-filters-js-benchmark
 Some benchmarking of the JavaScript bloom-filters JavaScript library
 
-# Run
+# Bloom Filter Benchmark
 
 ## Small Test
 
@@ -54,3 +54,10 @@ One improvement to the SHA256 approach would be to store a *sorted* list of SHA2
 Another improvement to the SHA256 approach would be to store the original *unsorted* list of SHA256 hashes when sending from server to client, but store it client-side in a Hash Table instead of an (un)sorted list. This would keep the O(*nk*) server-side "build" operation, and excluding client-side hash calculations, this would be O(1) *average*-case "find" per query (all aforementioned time complexities were *worst*-case), but to achieve average-case O(1) "find" per query, we would need the Hash Table to have a reasonable number of empty slots. Thus, if the raw collection of SHA256 hashes would be 16 MB, we would expect 24-32 MB for the Hash Table (which brings it in-line with a Bloom Filter in terms of size).
 
 In conclusion, it seems as though, from a *theoretical* standpoint, using a Bloom Filter for inexact client-side "Have I seen this element in the big database?" would likely be better than comparing SHA256 hashes (and would be comparable at worst).
+
+# GZIP Benchmark
+
+```bash
+# N = 1,000; LEVEL = 7; MEM = 12
+node bench_gzip.js example.csv 1000 7 12
+```
