@@ -55,9 +55,16 @@ Another improvement to the SHA256 approach would be to store the original *unsor
 
 In conclusion, it seems as though, from a *theoretical* standpoint, using a Bloom Filter for inexact client-side "Have I seen this element in the big database?" would likely be better than comparing SHA256 hashes (and would be comparable at worst).
 
-# GZIP Benchmark
+# [fflase](https://101arrowz.github.io/fflate/) Benchmark
 
 ```bash
-# N = 1,000; LEVEL = 7; MEM = 12
-node bench_gzip.js example.csv 1000 7 12
+# N = 1,000; LEVEL = 7; MEM = 12 (max)
+node bench_fflate.js example.csv 1000 7 12
+```
+
+# [pako](https://nodeca.github.io/pako/) Benchmark
+
+```bash
+# N = 1,000; LEVEL = 7; MEM = 9 (max)
+node bench_pako.js example.csv 1000 9 9
 ```
