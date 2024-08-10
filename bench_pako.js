@@ -28,7 +28,6 @@ console.log(`Uncompressed Size: ${data.length} bytes`)
 // GZIP-compress test dataset
 let start = new Date();
 const compressed = pako.deflate(data, {level:LEVEL, memLevel:MEM});
-//const compressed = gzipSync(data, {level:LEVEL, mem:MEM});
 let end = new Date();
 console.log(`Compress: ${end.getTime() - start.getTime()} ms`);
 console.log(`Compressed Size: ${compressed.byteLength} bytes`);
